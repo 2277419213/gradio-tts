@@ -1,17 +1,20 @@
-# 使用官方的 Python 基础镜像
+# 使用官方 Python 镜像作为基础镜像
 FROM python:3.11-slim
 
 # 设置工作目录
 WORKDIR /app
 
-# 复制当前目录的内容到工作目录
-COPY . .
+# 安装 FFmpeg
+RUN apt-get update && apt-get install -y ffmpeg
 
-# 安装依赖库
+# 复制当前目录的内容到工作目录
+COPY . /app
+
+# 安装 Python 依赖
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 暴露 Gradio 默认端口
+# 暴露应用运行的端口
 EXPOSE 7860
 
-# 运行应用
+# 启动应用
 CMD ["python", "main.py"]
