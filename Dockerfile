@@ -5,13 +5,13 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # 安装 FFmpeg
-RUN apt-get update && apt-get install -y ffmpeg
+RUN apt-get update && apt-get install -y espeak-ng ffmpeg
 
 # 复制当前目录的内容到工作目录
 COPY . /app
 
 # 安装 Python 依赖
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 暴露应用运行的端口
 EXPOSE 7860
