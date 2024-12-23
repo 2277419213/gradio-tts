@@ -35,7 +35,7 @@ with gr.Blocks() as demo:
     generate_button = gr.Button("开始转换")
     
     audio_output = gr.Audio(label="生成的音频", type="filepath")
-    download_button = gr.File(label="下载音频", type="filepath")
+    download_button = gr.File(label="下载音频", file_count="single", file_types=["audio"])
 
     def generate_audio(text, rate):
         audio_file = text_to_speech(text, rate)
