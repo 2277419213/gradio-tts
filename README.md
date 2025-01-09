@@ -71,4 +71,3 @@ docker run -p 7860:7860 gradio-tts-app
 ## 许可证
 
 此项目遵循 MIT 许可证。详情请参阅 `LICENSE` 文件。
-```
